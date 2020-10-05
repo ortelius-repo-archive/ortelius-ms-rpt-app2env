@@ -1,6 +1,8 @@
+import os
+
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
-import os
+from waitress import serve
 
 app = Flask(__name__)
 api = Api(app)
@@ -27,7 +29,7 @@ DATA = {
 }
 
 
-class Home(Resource):
+class Alien(Resource):
     def get(self):
         # return our data and 200 OK HTTP code
         return {'data': ALIEN}, 200
@@ -69,7 +71,7 @@ class Places(Resource):
                 }, 404
 
 
-api.add_resource(Home, '/')
+api.add_resource(Alien, '/')
 api.add_resource(Places, '/places')
 
 if __name__ == '__main__':
