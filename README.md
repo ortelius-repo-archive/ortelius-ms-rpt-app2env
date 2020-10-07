@@ -5,7 +5,7 @@
 The api is running in a Docker container deployed to Google Cloud using Python 3.8.2.
 
 To run the python code locally run 
-```$python app.py``` 
+```$python3 app.py``` 
 
 The server will be running on port 5000.
 
