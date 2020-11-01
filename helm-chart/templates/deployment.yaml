@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helm-chart.name" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "helm-chart.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "helm-chart.name" . }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always
+          ports:
+            - name: app2compport
+              containerPort: 5000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /places
+              port: app2compport
+          readinessProbe:
+            httpGet:
+              path: /places
+              port: app2compport
