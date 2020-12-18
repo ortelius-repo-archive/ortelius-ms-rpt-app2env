@@ -74,5 +74,5 @@ api.add_resource(Alien, '/')
 api.add_resource(Places, '/places')
 
 if __name__ == '__main__':
-
-app.run(host="0.0.0.0", port=5000)
+    if (os.getenv('FLASK_DEV_ENV', None) is not None):
+        app.run(host="0.0.0.0", port=5000)
