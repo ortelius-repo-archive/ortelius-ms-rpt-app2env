@@ -1,4 +1,7 @@
 # ortelius-ms-rpt-app2env
+
+[![GPLv2 license](https://img.shields.io/badge/license-Apache%202-green)](https://github.com/chicks-net/ortelius-ms-rpt-app2env/blob/master/LICENSE)
+
 ## Applications to Environments report microservices
 ### Welcome to the home of the Happy API
 
